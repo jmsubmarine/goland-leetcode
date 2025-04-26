@@ -22,6 +22,8 @@ Explanation:
 There is no way to divide nums into 4 / 2 = 2 pairs such that the pairs satisfy every condition.
 */
 
+package main
+
 func divideArray(nums []int) bool {
     if len(nums) % 2 != 0 {
         return false
