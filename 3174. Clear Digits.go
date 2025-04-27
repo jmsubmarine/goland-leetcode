@@ -35,16 +35,18 @@ The input is generated such that it is possible to delete all digits.
 package main
 
 func clearDigits(s string) string {
-    result := ""
+    stack := make([]byte, 0, len(s))
 
     for i := 0; i < len(s); i++ {
         ch := s[i]
         if ch >= '0' && ch <= '9' {
-            result = result[:len(result) - 1]
+            if len(stack) > 0 {
+                stack = stack[:len(stack)-1]
+            }
         } else {
-            result = result + string(ch)
+            stack = append(stack, ch)
         }
     }
 
-    return result
+    return string(stack)
 }
